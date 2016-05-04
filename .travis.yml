@@ -1,0 +1,10 @@
+language: scala
+scala:
+   - 2.11.8
+matrix:
+  fast_finish: true
+notifications:
+  email: false
+script:
+  - travis_retry sbt compile
+  - sbt test
