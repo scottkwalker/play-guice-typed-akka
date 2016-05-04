@@ -12,7 +12,7 @@ import scala.concurrent.duration._
 @Singleton
 class UntypedActorController @Inject()(
                                         actorSystem: ActorSystem,
-                                        @Named("name-SquarerUntypedActor") squarerUntypedActor: ActorRef
+                                        @Named("squarerUntyped") squarerUntypedActor: ActorRef
                                       )(implicit exec: ExecutionContext)
   extends Controller with InjectedActorSupport {
 

@@ -10,9 +10,7 @@ import scala.concurrent.duration._
 import scala.concurrent.{ExecutionContext, Promise}
 
 @Singleton
-class AsyncController @Inject()(
-                                 actorSystem: ActorSystem
-                               )(implicit exec: ExecutionContext)
+class AsyncController @Inject()(actorSystem: ActorSystem)(implicit exec: ExecutionContext)
   extends Controller with InjectedActorSupport {
 
   def promiseMessage = Action.async {
