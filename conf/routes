@@ -4,4 +4,5 @@
 
 # An example controller showing how to write asynchronous code
 GET     /promise-message                    controllers.AsyncController.promiseMessage
-GET     /square-now                 controllers.AsyncController.squareNow
+GET     /square-now-untyped                 controllers.UntypedActorController.squareNowUntyped
+GET     /square-now-typed                   controllers.TypedActorController.squareNow
