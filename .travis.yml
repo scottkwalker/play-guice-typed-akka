@@ -1,23 +1,23 @@
-sudo: false
-
 language: scala
-cache:
-  directories:
-    - $HOME/.ivy2/cache
-    - $HOME/.sbt/boot/
+
+jdk:
+  - oraclejdk8
 
 scala:
   - 2.11.8
 
-jdk:
-  - oraclejdk8
+sudo: false
+
+before_cache:
+  - find $HOME/.sbt -name "*.lock" | xargs rm
+  - find $HOME/.ivy2 -name "ivydata-*.properties" | xargs rm
+cache:
+  directories:
+    - $HOME/.sbt/boot
+    - $HOME/.ivy2/cache
 
 notifications:
   email: false
 
 script:
-  - sbt ++$TRAVIS_SCALA_VERSION -J-XX:ReservedCodeCacheSize=256M test
-
-  # Tricks to avoid unnecessary cache updates
-  - find $HOME/.sbt -name "*.lock" | xargs rm
-  - find $HOME/.ivy2 -name "ivydata-*.properties" | xargs rm
+  - sbt ++$TRAVIS_SCALA_VERSION test
