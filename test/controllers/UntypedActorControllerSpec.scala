@@ -11,5 +11,9 @@ class UntypedActorControllerSpec extends PlaySpec with OneAppPerTest {
     "return number squared" in {
       contentAsString(route(app, FakeRequest(GET, "/square-now-untyped")).get) mustBe "25"
     }
+
+    "deliberate fail" in {
+      false shouldBe true
+    }
   }
 }
